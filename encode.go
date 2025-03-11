@@ -42,8 +42,8 @@ func releaseEncoder(enc *Encoder) {
 	encoderPool.Put(enc)
 }
 
-// Encode converts a struct instance to Markdown based on `jsonschema` tags.
-func Encode(obj any) ([]byte, error) {
+// Marshal converts a struct instance to Markdown based on `jsonschema` tags.
+func Marshal(obj any) ([]byte, error) {
 	enc := getEncoder()
 	defer releaseEncoder(enc)
 	enc.Encode(obj)

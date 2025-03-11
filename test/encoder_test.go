@@ -3,6 +3,8 @@ package mdencoder
 import (
 	"fmt"
 	"testing"
+
+	"github.com/bububa/mdencoder"
 )
 
 // Profile is a nested struct inside User.
@@ -106,7 +108,7 @@ var (
 func TestEncoder(t *testing.T) {
 	// Example object with pointers and an array of object pointers
 
-	markdown, err := Encode(&user)
+	markdown, err := mdencoder.Marshal(&user)
 	if err != nil {
 		t.Error(err)
 		return
@@ -175,7 +177,7 @@ func TestEncoder(t *testing.T) {
 }
 
 func TestMarshaler(t *testing.T) {
-	markdown, err := Encode(&customUser)
+	markdown, err := mdencoder.Marshal(&customUser)
 	if err != nil {
 		t.Error(err)
 		return
